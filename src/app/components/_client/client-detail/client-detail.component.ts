@@ -83,11 +83,27 @@ export class ClientDetailComponent implements OnInit {
     console.log('form is valid?', !this.registerForm.invalid);
 
     if (this.registerForm.get('cpf')?.invalid) {
-      console.log('O campo CPF é inválido.');
+      console.log('Erro! O campo CPF é inválido.');
 
-      alert('O CPF é inválido!');
+      alert('Erro! O CPF é inválido!');
 
-      throw new Error('O CPF é inválido!');
+      throw new Error('Erro! O CPF é inválido!');
+    }
+
+    const currentDate = new Date();
+    const ageInMilliseconds =
+      currentDate.getTime() -
+      new Date(this.registerForm.value['birthDate']).getTime();
+    const ageInYears = Math.floor(
+      ageInMilliseconds / (1000 * 60 * 60 * 24 * 365)
+    );
+
+    const age = ageInYears;
+
+    if (age <= 18 || age < 60) {
+      console.log('Erro: A idade deve estar entre 18 e 60 anos!');
+
+      alert('Erro: A idade deve estar entre 18 e 60 anos!');
     }
 
     return new EventEmitter();
