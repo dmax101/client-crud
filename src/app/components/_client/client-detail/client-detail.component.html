@@ -1,0 +1,26 @@
+<div class="w-full h-full flex justify-center items-center">
+  <form
+    class="flex flex-col gap-4 bg-safra-neutral-50 w-96 rounded-tr-none rounded-tl-3xl rounded-bl-3xl rounded-br-3xl p-4"
+    [formGroup]="registerForm"
+  >
+    <h1 class="text-xl font-semibold uppercase w-full text-center">
+      Cadastro de cliente
+    </h1>
+    <div class="flex flex-col gap-4">
+      <app-input
+        placeholder="Digite o nome do cliente"
+        [formControlName]="'firstName'"
+        >Nome:</app-input
+      >
+      <app-input
+        placeholder="Digite o sobrenome do cliente"
+        [formControlName]="'lastName'"
+        >Sobrenome:</app-input
+      >
+    </div>
+    <div class="w-full flex flex-row justify-between">
+      <app-button (buttonClick)="closeDialog.emit()">Fechar</app-button>
+      <app-button (buttonClick)="onSaveRegister().emit()">Salvar</app-button>
+    </div>
+  </form>
+</div>

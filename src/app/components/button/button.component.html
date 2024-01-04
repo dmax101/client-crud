@@ -1,0 +1,9 @@
+<button
+  type="button"
+  title="button"
+  [disabled]="disabled"
+  (click)="buttonClick.emit('event')"
+  class="w-fit py-2 px-4 bg-safra-primary-700 hover:bg-safra-primary-300 focus:bg-safra-primary-500 focus:border-2 border-2 border-transparent focus:border-safra-info-500 active:bg-safra-primary-900 disabled:bg-safra-neutral-100 text-white text-xs text-nowrap disabled:text-safra-neutral-500 rounded-full"
+>
+  <ng-content></ng-content>
+</button>

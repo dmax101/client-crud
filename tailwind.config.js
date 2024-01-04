@@ -9,7 +9,9 @@ module.exports = {
       colors: {
         "safra-primary": {
           900: "#002C37",
+          700: "#0A4A5B",
           500: "#00586F",
+          300: "#11728B",
           100: "#7FABB7",
         },
         "safra-secondary": {
@@ -36,6 +38,14 @@ module.exports = {
           900: "#1E536B",
           500: "#3CA6D6",
           100: "#D8EDF7",
+        },
+        "safra-neutral": {
+          900: "#1A1A1A",
+          700: "#4F4F4F",
+          500: "#9E9E9E",
+          300: "#D8D8D8",
+          100: "#EDEDED",
+          50: "#F9F9F9",
         },
       },
     },

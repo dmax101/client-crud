@@ -1,0 +1,22 @@
+<div class="p-12">
+  <div>
+    <h1 class="text-xl uppercase font-black">Clientes</h1>
+  </div>
+  <div class="flex flex-row justify-between">
+    <div class="bg-red-600 w-full">Filtros</div>
+    <div class="w-fit">
+      <app-button (buttonClick)="registrationDialog.show()"
+        >CADASTRAR NOVO CLIENTE</app-button
+      >
+    </div>
+  </div>
+  <dialog
+    class="w-screen h-screen absolute top-0 left-0 bg-safra-neutral-900 bg-opacity-80"
+    #registrationDialog
+  >
+    <app-client-detail
+      (closeDialog)="registrationDialog.close()"
+    ></app-client-detail>
+  </dialog>
+  <app-client-list></app-client-list>
+</div>
