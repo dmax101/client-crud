@@ -14,19 +14,19 @@
       </tr>
     </thead>
     <tbody class="text-sm">
-      @for (client of clients ; track client.cpf) {
+      @for (client of clients$ | async; track client.cpf) {
       <tr class="bg-white even:bg-safra-neutral-50 rounded-full">
         <td class="text-nowrap p-2 text-center w-fit">
           {{ client.firstName }} {{ client.lastName }}
         </td>
         <td class="text-nowrap p-2 text-center w-fit">
-          {{ client.cpf }}
+          {{ client.cpf | cpf }}
         </td>
         <td class="text-nowrap p-2 text-center w-fit">
           {{ client.birthDate | date : "dd/MM/yyyy" }}
         </td>
         <td class="text-nowrap p-2 text-center w-fit">
-          {{ client.monthlyIncome }}
+          {{ client.monthlyIncome | currency : "BRL" }}
         </td>
         <td class="text-nowrap p-2 text-center w-fit">{{ client.email }}</td>
         <td class="text-nowrap p-2 text-center w-fit">
@@ -39,22 +39,22 @@
       }
     </tbody>
   </table>
-  @if (clients.length === 0) {
+  @if ((clients$ | async)!.length! === 0) {
   <div class="w-full h-8 flex justify-center items-center text-sm">
     Sem dados para exibir!
   </div>
   }
 
   <div class="w-full flex flex-row justify-center gap-4 text-[12px] mt-4">
-    <button class="text-nowrap">⏮ Primeira</button>
-    <button class="text-nowrap">◀ Anterior</button>
+    <button class="text-nowrap" (click)="firstPage()">⏮ Primeira</button>
+    <button class="text-nowrap" (click)="beforePage()">◀ Anterior</button>
     <div
       class="w-fit border-[1px] border-safra-neutral-300 p-2 rounded-xl text-center"
     >
       {{ total }} <br />
       registros
     </div>
-    <button class="text-nowrap">▶ Próxima</button>
-    <button class="text-nowrap">⏭ Última</button>
+    <button class="text-nowrap" (click)="nextPage()">▶ Próxima</button>
+    <button class="text-nowrap" (click)="lastPage()">⏭ Última</button>
   </div>
 </div>

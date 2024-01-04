@@ -79,15 +79,6 @@ export class ClientDetailComponent implements OnInit {
   }
 
   onSaveRegister() {
-    if (this.registerForm.invalid) {
-      alert('Erro! Verificar o formulário!');
-
-      Object.keys(this.registerForm.controls).forEach((key) => {
-        this.registerForm.get(key)?.markAsTouched();
-        this.registerForm.get(key)?.markAsDirty();
-      });
-    }
-
     if (this.registerForm.get('cpf')?.invalid) {
       console.error('Erro! O campo CPF é inválido.');
 
