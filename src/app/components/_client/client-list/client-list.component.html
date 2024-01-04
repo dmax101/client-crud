@@ -4,6 +4,7 @@
       <tr
         class="uppercase text-[12px] text-white bg-safra-primary-300 rounded-tr-none rounded-tl-3xl rounded-bl-3xl rounded-br-3xl"
       >
+        <th class="w-fit text-center text-nowrap p-2">Editar</th>
         <th class="w-fit text-center text-nowrap p-2">Nome</th>
         <th class="w-fit text-center text-nowrap p-2">CPF</th>
         <th class="w-fit text-center text-nowrap p-2">Data de Nascimento</th>
@@ -16,6 +17,11 @@
     <tbody class="text-sm">
       @for (client of clients$ | async; track client.cpf) {
       <tr class="bg-white even:bg-safra-neutral-50 rounded-full">
+        <td class="text-nowrap p-2 text-center w-fit">
+          <app-button (buttonClick)="edit(client, editionDialog)"
+            >Editar</app-button
+          >
+        </td>
         <td class="text-nowrap p-2 text-center w-fit">
           {{ client.firstName }} {{ client.lastName }}
         </td>
@@ -58,3 +64,13 @@
     <button class="text-nowrap" (click)="lastPage()">⏭ Última</button>
   </div>
 </div>
+
+<dialog
+  class="w-screen h-screen absolute top-0 left-0 bg-safra-neutral-900 bg-opacity-80"
+  #editionDialog
+>
+  <app-client-detail
+    [user]="user"
+    (closeDialog)="editionDialog.close()"
+  ></app-client-detail>
+</dialog>

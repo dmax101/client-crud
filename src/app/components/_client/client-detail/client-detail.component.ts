@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InputComponent } from '../../input/input.component';
 import { ButtonComponent } from '../../button/button.component';
 import {
@@ -26,22 +26,41 @@ import { DbService } from '../../../services/db.service';
   providers: [provideNgxMask(), DbService],
 })
 export class ClientDetailComponent implements OnInit {
+  @Input() user!: any;
   @Output() closeDialog = new EventEmitter();
   @Output() saveClient = new EventEmitter();
   registerForm!: FormGroup;
 
+  cpfInputIsDisabled!: boolean;
+
   constructor(private fb: FormBuilder, private dbService: DbService) {}
 
   ngOnInit(): void {
-    this.registerForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      cpf: ['', [Validators.required, this.validateCpf]],
-      birthDate: ['', [Validators.required]],
-      monthlyIncome: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      createdAt: ['', [Validators.required]],
-    });
+    if (!this.user) {
+      this.registerForm = this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        cpf: ['', [Validators.required, this.validateCpf]],
+        birthDate: ['', [Validators.required]],
+        monthlyIncome: ['', [Validators.required]],
+        email: ['', [Validators.required]],
+        createdAt: ['', [Validators.required]],
+      });
+
+      this.cpfInputIsDisabled = false;
+    } else {
+      this.registerForm = this.fb.group({
+        firstName: [this.user.firstName, Validators.required],
+        lastName: [this.user.lastName, Validators.required],
+        cpf: [this.user.cpf, [Validators.required, this.validateCpf]],
+        birthDate: [this.user.birthDate, [Validators.required]],
+        monthlyIncome: [this.user.monthlyIncome, [Validators.required]],
+        email: [this.user.email, [Validators.required]],
+        createdAt: [this.user.createdAt, [Validators.required]],
+      });
+
+      this.cpfInputIsDisabled = true;
+    }
   }
 
   validateCpf(control: any): { [key: string]: any } | null {

@@ -64,12 +64,14 @@
           >CPF:</label
         >
         <input
+          #cpfInput
           class="text-sm font-extralight text-safra-primary-900 bg-transparent mt-2 invalid:text-red-500"
           type="text"
           name="cpf"
           id="cpf"
           placeholder="Digite o CPF do cliente"
           mask="000.000.000-00"
+          [disabled]="cpfInputIsDisabled"
           formControlName="cpf"
         />
         <small

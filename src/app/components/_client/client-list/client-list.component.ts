@@ -5,6 +5,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CpfPipe } from '../../../pipes/cpf.pipe';
+import { ClientDetailComponent } from '../client-detail/client-detail.component';
 
 @Component({
   selector: 'app-client-list',
@@ -12,7 +13,7 @@ import { CpfPipe } from '../../../pipes/cpf.pipe';
   providers: [DbService, DatePipe, CpfPipe],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
-  imports: [CommonModule, ButtonComponent, CpfPipe],
+  imports: [CommonModule, ButtonComponent, CpfPipe, ClientDetailComponent],
 })
 export class ClientListComponent implements OnInit, OnDestroy {
   total!: number;
@@ -20,6 +21,8 @@ export class ClientListComponent implements OnInit, OnDestroy {
   limit!: number;
 
   clients$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+
+  user!: any;
 
   constructor(private dbService: DbService) {}
 
@@ -59,6 +62,13 @@ export class ClientListComponent implements OnInit, OnDestroy {
         console.error('Error!', error);
       },
     });
+  }
+
+  edit(user: any, dialogue: HTMLDialogElement) {
+    console.log(user);
+
+    this.user = user;
+    dialogue.open = true;
   }
 
   firstPage() {
