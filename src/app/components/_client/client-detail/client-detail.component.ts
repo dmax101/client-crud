@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
+import { DbService } from '../../../services/db.service';
 
 @Component({
   selector: 'app-client-detail',
@@ -22,14 +23,14 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     NgxMaskDirective,
   ],
-  providers: [provideNgxMask()],
+  providers: [provideNgxMask(), DbService],
 })
 export class ClientDetailComponent implements OnInit {
   @Output() closeDialog = new EventEmitter();
   @Output() saveClient = new EventEmitter();
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dbService: DbService) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -39,7 +40,7 @@ export class ClientDetailComponent implements OnInit {
       birthDate: ['', [Validators.required]],
       monthlyIncome: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      createdAt: [new Date(), [Validators.required]],
+      createdAt: ['', [Validators.required]],
     });
   }
 
@@ -78,8 +79,17 @@ export class ClientDetailComponent implements OnInit {
   }
 
   onSaveRegister() {
+    if (this.registerForm.invalid) {
+      alert('Erro! Verificar o formulário!');
+
+      Object.keys(this.registerForm.controls).forEach((key) => {
+        this.registerForm.get(key)?.markAsTouched();
+        this.registerForm.get(key)?.markAsDirty();
+      });
+    }
+
     if (this.registerForm.get('cpf')?.invalid) {
-      console.log('Erro! O campo CPF é inválido.');
+      console.error('Erro! O campo CPF é inválido.');
 
       alert('Erro! O CPF é inválido!');
 
@@ -96,11 +106,28 @@ export class ClientDetailComponent implements OnInit {
 
     const age = ageInYears;
 
-    if (age <= 18 || age < 60) {
-      console.log('Erro: A idade deve estar entre 18 e 60 anos!');
+    if (age < 18 || age > 60) {
+      console.error('Erro: A idade deve estar entre 18 e 60 anos!');
 
       alert('Erro: A idade deve estar entre 18 e 60 anos!');
+
+      throw new Error('Erro: A idade deve estar entre 18 e 60 anos!');
     }
+
+    this.dbService
+      .saveClientOnDb({ ...this.registerForm.value, createdAt: new Date() })
+      .subscribe({
+        next: (response) => {
+          console.log('Registro salvo com sucesso:', response);
+
+          alert('Registro salvo com sucesso!');
+
+          this.registerForm.reset();
+        },
+        error: (error) => {
+          console.error('Erro ao salvar registro:', error);
+        },
+      });
 
     return new EventEmitter();
   }

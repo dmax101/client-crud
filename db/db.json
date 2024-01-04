@@ -3,182 +3,132 @@
     {
       "firstName": "Danilo",
       "lastName": "Ribeiro",
-      "cpf": "875.384.320-78",
-      "birthDate": "",
-      "monthlyIncome": "20000",
+      "cpf": "12345678901",
+      "birthDate": "1984-02-15",
+      "monthlyIncome": 20000,
       "email": "danriba@gmail.com",
-      "createdAt": ""
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 1
     },
     {
-      "firstName": "Amanda",
+      "firstName": "Maria",
       "lastName": "Silva",
-      "cpf": "123.456.789-10",
-      "birthDate": "",
-      "monthlyIncome": "15000",
-      "email": "amanda.silva@gmail.com",
-      "createdAt": ""
+      "cpf": "12345678901",
+      "birthDate": "1990-05-20",
+      "monthlyIncome": 15000,
+      "email": "mariasilva@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 2
     },
     {
-      "firstName": "Lucas",
+      "firstName": "João",
       "lastName": "Santos",
-      "cpf": "987.654.321-00",
-      "birthDate": "",
-      "monthlyIncome": "10000",
-      "email": "lucas.santos@gmail.com",
-      "createdAt": ""
+      "cpf": "98765432109",
+      "birthDate": "1988-12-01",
+      "monthlyIncome": 18000,
+      "email": "joaosantos@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 3
     },
     {
-      "firstName": "Juliana",
-      "lastName": "Ferreira",
-      "cpf": "456.789.123-45",
-      "birthDate": "",
-      "monthlyIncome": "8000",
-      "email": "juliana.ferreira@gmail.com",
-      "createdAt": ""
+      "firstName": "Ana",
+      "lastName": "Souza",
+      "cpf": "45678912301",
+      "birthDate": "1995-07-10",
+      "monthlyIncome": 12000,
+      "email": "anasouza@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 4
     },
     {
       "firstName": "Pedro",
-      "lastName": "Souza",
-      "cpf": "321.654.987-00",
-      "birthDate": "",
-      "monthlyIncome": "12000",
-      "email": "pedro.souza@gmail.com",
-      "createdAt": ""
+      "lastName": "Ferreira",
+      "cpf": "78945612309",
+      "birthDate": "1982-03-05",
+      "monthlyIncome": 25000,
+      "email": "pedroferreira@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 5
     },
     {
       "firstName": "Mariana",
       "lastName": "Oliveira",
-      "cpf": "789.123.456-78",
-      "birthDate": "",
-      "monthlyIncome": "9000",
-      "email": "mariana.oliveira@gmail.com",
-      "createdAt": ""
+      "cpf": "32165498709",
+      "birthDate": "1992-11-15",
+      "monthlyIncome": 17000,
+      "email": "marianaoliveira@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 6
     },
     {
-      "firstName": "Rafael",
-      "lastName": "Santana",
-      "cpf": "654.321.987-00",
-      "birthDate": "",
-      "monthlyIncome": "11000",
-      "email": "rafael.santana@gmail.com",
-      "createdAt": ""
+      "firstName": "Lucas",
+      "lastName": "Almeida",
+      "cpf": "65498732101",
+      "birthDate": "1989-06-25",
+      "monthlyIncome": 22000,
+      "email": "lucasalmeida@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 7
     },
     {
       "firstName": "Carla",
       "lastName": "Costa",
-      "cpf": "321.987.654-00",
-      "birthDate": "",
-      "monthlyIncome": "13000",
-      "email": "carla.costa@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Gustavo",
-      "lastName": "Pereira",
-      "cpf": "456.123.789-10",
-      "birthDate": "",
-      "monthlyIncome": "14000",
-      "email": "gustavo.pereira@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Fernanda",
-      "lastName": "Rodrigues",
-      "cpf": "789.456.123-45",
-      "birthDate": "",
-      "monthlyIncome": "11000",
-      "email": "fernanda.rodrigues@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "João",
-      "lastName": "Almeida",
-      "cpf": "987.654.321-00",
-      "birthDate": "",
-      "monthlyIncome": "10000",
-      "email": "joao.almeida@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Larissa",
-      "lastName": "Mendes",
-      "cpf": "123.789.456-78",
-      "birthDate": "",
-      "monthlyIncome": "12000",
-      "email": "larissa.mendes@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Rodrigo",
-      "lastName": "Fernandes",
-      "cpf": "654.987.321-00",
-      "birthDate": "",
-      "monthlyIncome": "9000",
-      "email": "rodrigo.fernandes@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Camila",
-      "lastName": "Sousa",
-      "cpf": "789.123.456-78",
-      "birthDate": "",
-      "monthlyIncome": "8000",
-      "email": "camila.sousa@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Lucas",
-      "lastName": "Ferreira",
-      "cpf": "789.456.123-45",
-      "birthDate": "",
-      "monthlyIncome": "11000",
-      "email": "lucas.ferreira@gmail.com",
-      "createdAt": ""
-    },
-    {
-      "firstName": "Mariana",
-      "lastName": "Santos",
-      "cpf": "456.789.123-45",
-      "birthDate": "",
-      "monthlyIncome": "9000",
-      "email": "mariana.santos@gmail.com",
-      "createdAt": ""
+      "cpf": "98732165409",
+      "birthDate": "1998-01-30",
+      "monthlyIncome": 10000,
+      "email": "carlacosta@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 8
     },
     {
       "firstName": "Rafael",
-      "lastName": "Oliveira",
-      "cpf": "789.123.456-78",
-      "birthDate": "",
-      "monthlyIncome": "8000",
-      "email": "rafael.oliveira@gmail.com",
-      "createdAt": ""
+      "lastName": "Santana",
+      "cpf": "12378945601",
+      "birthDate": "1986-09-12",
+      "monthlyIncome": 19000,
+      "email": "rafaelsantana@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 9
     },
     {
-      "firstName": "Carla",
-      "lastName": "Pereira",
-      "cpf": "321.654.987-00",
-      "birthDate": "",
-      "monthlyIncome": "12000",
-      "email": "carla.pereira@gmail.com",
-      "createdAt": ""
+      "firstName": "Juliana",
+      "lastName": "Gomes",
+      "cpf": "45612378909",
+      "birthDate": "1993-04-18",
+      "monthlyIncome": 14000,
+      "email": "julianagomes@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 10
     },
     {
-      "firstName": "Gustavo",
-      "lastName": "Rodrigues",
-      "cpf": "456.123.789-10",
-      "birthDate": "",
-      "monthlyIncome": "14000",
-      "email": "gustavo.rodrigues@gmail.com",
-      "createdAt": ""
+      "firstName": "Lucas",
+      "lastName": "Silva",
+      "cpf": "12345678901",
+      "birthDate": "1995-05-20",
+      "monthlyIncome": 15000,
+      "email": "lucassilva@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 16
     },
     {
-      "firstName": "Fernanda",
-      "lastName": "Almeida",
-      "cpf": "789.456.123-45",
-      "birthDate": "",
-      "monthlyIncome": "10000",
-      "email": "fernanda.almeida@gmail.com",
-      "createdAt": ""
+      "firstName": "Juliana",
+      "lastName": "Ferreira",
+      "cpf": "98765432109",
+      "birthDate": "1988-12-01",
+      "monthlyIncome": 18000,
+      "email": "julianaferreira@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 17
+    },
+    {
+      "firstName": "Rafael",
+      "lastName": "Souza",
+      "cpf": "45678912301",
+      "birthDate": "1992-07-10",
+      "monthlyIncome": 12000,
+      "email": "rafaelsouza@gmail.com",
+      "createdAt": "2024-01-04T17:09:22.439Z",
+      "id": 18
     }
   ]
 }

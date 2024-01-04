@@ -1,1 +1,60 @@
-<p>client-list works!</p>
+<div class="mt-4 w-full overflow-x-auto flex flex-col">
+  <table>
+    <thead class="bg-transparent">
+      <tr
+        class="uppercase text-[12px] text-white bg-safra-primary-300 rounded-tr-none rounded-tl-3xl rounded-bl-3xl rounded-br-3xl"
+      >
+        <th class="w-fit text-center text-nowrap p-2">Nome</th>
+        <th class="w-fit text-center text-nowrap p-2">CPF</th>
+        <th class="w-fit text-center text-nowrap p-2">Data de Nascimento</th>
+        <th class="w-fit text-center text-nowrap p-2">Renda Mensal</th>
+        <th class="w-fit text-center text-nowrap p-2">E-mail</th>
+        <th class="w-fit text-center text-nowrap p-2">Data de Criação</th>
+        <th class="w-fit text-center text-nowrap p-2">Excluir</th>
+      </tr>
+    </thead>
+    <tbody class="text-sm">
+      @for (client of clients ; track client.cpf) {
+      <tr class="bg-white even:bg-safra-neutral-50 rounded-full">
+        <td class="text-nowrap p-2 text-center w-fit">
+          {{ client.firstName }} {{ client.lastName }}
+        </td>
+        <td class="text-nowrap p-2 text-center w-fit">
+          {{ client.cpf }}
+        </td>
+        <td class="text-nowrap p-2 text-center w-fit">
+          {{ client.birthDate | date : "dd/MM/yyyy" }}
+        </td>
+        <td class="text-nowrap p-2 text-center w-fit">
+          {{ client.monthlyIncome }}
+        </td>
+        <td class="text-nowrap p-2 text-center w-fit">{{ client.email }}</td>
+        <td class="text-nowrap p-2 text-center w-fit">
+          {{ client.createdAt }}
+        </td>
+        <td class="text-nowrap p-2 text-center w-fit">
+          <app-button (buttonClick)="delete(client.id)">Apagar</app-button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  @if (clients.length === 0) {
+  <div class="w-full h-8 flex justify-center items-center text-sm">
+    Sem dados para exibir!
+  </div>
+  }
+
+  <div class="w-full flex flex-row justify-center gap-4 text-[12px] mt-4">
+    <button class="text-nowrap">⏮ Primeira</button>
+    <button class="text-nowrap">◀ Anterior</button>
+    <div
+      class="w-fit border-[1px] border-safra-neutral-300 p-2 rounded-xl text-center"
+    >
+      {{ total }} <br />
+      registros
+    </div>
+    <button class="text-nowrap">▶ Próxima</button>
+    <button class="text-nowrap">⏭ Última</button>
+  </div>
+</div>
