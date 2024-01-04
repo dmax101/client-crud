@@ -27,10 +27,10 @@ export class ClientDetailComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cpf: ['', [Validators.required]],
-      // birthDate: ['', [Validators.required]],
-      // monthlyIncome: ['', [Validators.required]],
-      // email: ['', [Validators.required]],
-      // createdAt: ['', [Validators.required]],
+      birthDate: ['', [Validators.required]],
+      monthlyIncome: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      createdAt: [new Date(), [Validators.required]],
     });
   }
 
