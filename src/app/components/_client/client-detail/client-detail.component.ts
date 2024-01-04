@@ -78,10 +78,6 @@ export class ClientDetailComponent implements OnInit {
   }
 
   onSaveRegister() {
-    console.log('save!!!!!');
-    console.log(this.registerForm.value);
-    console.log('form is valid?', !this.registerForm.invalid);
-
     if (this.registerForm.get('cpf')?.invalid) {
       console.log('Erro! O campo CPF é inválido.');
 
