@@ -7,13 +7,20 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-client-detail',
   standalone: true,
   templateUrl: './client-detail.component.html',
   styleUrl: './client-detail.component.scss',
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
+  imports: [
+    InputComponent,
+    ButtonComponent,
+    ReactiveFormsModule,
+    NgxMaskDirective,
+  ],
+  providers: [provideNgxMask()],
 })
 export class ClientDetailComponent implements OnInit {
   @Output() closeDialog = new EventEmitter();
