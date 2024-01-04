@@ -23,6 +23,14 @@
           placeholder="Digite o nome do cliente"
           formControlName="firstName"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['firstName'].dirty &&
+            registerForm.hasError('required', 'firstName')
+          "
+          >* Nome é requerido!
+        </small>
       </div>
       <div
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
@@ -40,6 +48,14 @@
           placeholder="Digite o sobrenome do cliente"
           formControlName="lastName"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['lastName'].dirty &&
+            registerForm.hasError('required', 'lastName')
+          "
+          >* Sobrenome é requerido!
+        </small>
       </div>
       <div
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
@@ -53,9 +69,17 @@
           name="cpf"
           id="cpf"
           placeholder="Digite o CPF do cliente"
-          formControlName="cpf"
           mask="000.000.000-00"
+          formControlName="cpf"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['cpf'].dirty &&
+            registerForm.hasError('required', 'cpf')
+          "
+          >* CPF é requerido!
+        </small>
       </div>
       <div
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
@@ -73,6 +97,14 @@
           placeholder="Digite a data de aniversário do cliente"
           formControlName="birthDate"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['birthDate'].dirty &&
+            registerForm.hasError('required', 'birthDate')
+          "
+          >* Data de Nascimento é requerida!
+        </small>
       </div>
       <div
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
@@ -80,7 +112,7 @@
         <label
           class="text-safra-primary-500 text-sm bg-transparent"
           for="monthlyIncome"
-          >Renda Mensal:</label
+          >Renda Mensal (R$):</label
         >
         <input
           class="text-sm font-extralight text-safra-primary-900 bg-transparent mt-2 invalid:text-red-500"
@@ -90,6 +122,14 @@
           placeholder="Digite a renda mensal do cliente"
           formControlName="monthlyIncome"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['monthlyIncome'].dirty &&
+            registerForm.hasError('required', 'monthlyIncome')
+          "
+          >* Renda Mensal é requerida!
+        </small>
       </div>
       <div
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
@@ -105,11 +145,19 @@
           placeholder="Digite o e-mail do cliente"
           formControlName="email"
         />
+        <small
+          class="text-xs text-orange-500 w-full flex justify-end mt-2"
+          *ngIf="
+            registerForm.controls['email'].dirty &&
+            registerForm.hasError('required', 'email')
+          "
+          >* E-mail é requerido!
+        </small>
       </div>
     </div>
     <div class="w-full flex flex-row justify-between">
       <app-button (buttonClick)="closeDialog.emit()">Fechar</app-button>
-      <app-button (buttonClick)="onSaveRegister().emit()">Salvar</app-button>
+      <app-button (buttonClick)="onSaveRegister()!.emit()">Salvar</app-button>
     </div>
   </form>
 </div>
