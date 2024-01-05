@@ -10,6 +10,7 @@ import {
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { DbService } from '../../../services/db.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-client-detail',
@@ -31,11 +32,11 @@ export class ClientDetailComponent implements OnInit {
   @Output() saveClient = new EventEmitter();
   registerForm!: FormGroup;
 
-  cpfInputIsDisabled!: boolean;
-
   constructor(private fb: FormBuilder, private dbService: DbService) {}
 
   ngOnInit(): void {
+    console.log('user', this.user);
+
     if (!this.user) {
       this.registerForm = this.fb.group({
         firstName: ['', Validators.required],
@@ -46,8 +47,6 @@ export class ClientDetailComponent implements OnInit {
         email: ['', [Validators.required]],
         createdAt: ['', [Validators.required]],
       });
-
-      this.cpfInputIsDisabled = false;
     } else {
       this.registerForm = this.fb.group({
         firstName: [this.user.firstName, Validators.required],
@@ -58,8 +57,6 @@ export class ClientDetailComponent implements OnInit {
         email: [this.user.email, [Validators.required]],
         createdAt: [this.user.createdAt, [Validators.required]],
       });
-
-      this.cpfInputIsDisabled = true;
     }
   }
 

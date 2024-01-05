@@ -18,7 +18,7 @@
       @for (client of clients$ | async; track client.cpf) {
       <tr class="bg-white even:bg-safra-neutral-50 rounded-full">
         <td class="text-nowrap p-2 text-center w-fit">
-          <app-button (buttonClick)="edit(client, editionDialog)"
+          <app-button (buttonClick)="edit(client, editionDialog, clientDetail)"
             >Editar</app-button
           >
         </td>
@@ -70,6 +70,7 @@
   #editionDialog
 >
   <app-client-detail
+    #clientDetail
     [user]="user"
     (closeDialog)="editionDialog.close()"
   ></app-client-detail>

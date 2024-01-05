@@ -64,10 +64,16 @@ export class ClientListComponent implements OnInit, OnDestroy {
     });
   }
 
-  edit(user: any, dialogue: HTMLDialogElement) {
+  edit(
+    user: any,
+    dialogue: HTMLDialogElement,
+    clientDetail: ClientDetailComponent
+  ) {
     console.log(user);
 
     this.user = user;
+    clientDetail!.user = this.user;
+    clientDetail.ngOnInit();
     dialogue.open = true;
   }
 
