@@ -5,23 +5,41 @@
         class="uppercase text-[12px] text-white bg-safra-primary-300 rounded-tr-none rounded-tl-3xl rounded-bl-3xl rounded-br-3xl"
       >
         <th class="w-fit text-center text-nowrap p-2">Editar</th>
-        <th class="w-fit text-center text-nowrap p-2">
-          Nome <button (click)="sort('firstName')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('firstName')">↕</button>
+            <span class="text-nowrap">Nome</span>
+          </div>
         </th>
-        <th class="w-fit text-center text-nowrap p-2">
-          CPF <button (click)="sort('cpf')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('cpf')">↕</button>
+            <span class="text-nowrap">CPF</span>
+          </div>
         </th>
-        <th class="w-fit text-center text-nowrap p-2">
-          Data de Nascimento <button (click)="sort('birthDate')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('birthDate')">↕</button>
+            <span class="text-nowrap">Data de Nascimento</span>
+          </div>
         </th>
-        <th class="w-fit text-center text-nowrap p-2">
-          Renda Mensal <button (click)="sort('monthlyIncome')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('monthlyIncome')">↕</button>
+            <span class="text-nowrap">Renda Mensal</span>
+          </div>
         </th>
-        <th class="w-fit text-center text-nowrap p-2">
-          E-mail <button (click)="sort('email')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('email')">↕</button>
+            <span class="text-nowrap">E-mail</span>
+          </div>
         </th>
-        <th class="w-fit text-center text-nowrap p-2">
-          Data de Criação <button (click)="sort('createdAt')">↕</button>
+        <th class="p-y2 px-4">
+          <div class="flex flex-row justify-center gap-2 items-center">
+            <button (click)="sort('createdAt')">↕</button>
+            <span class="text-nowrap">Data de Criação</span>
+          </div>
         </th>
         <th class="w-fit text-center text-nowrap p-2">Excluir</th>
       </tr>

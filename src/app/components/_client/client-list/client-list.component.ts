@@ -20,6 +20,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
   actualPage!: number;
   limit!: number;
   sortedBy!: string;
+  sortOrder!: 'asc' | 'desc';
 
   clients$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
@@ -31,6 +32,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
     this.actualPage = 1;
     this.limit = 5;
     this.sortedBy = 'firstName';
+    this.sortOrder = 'asc';
 
     this.updateData();
   }
@@ -54,7 +56,12 @@ export class ClientListComponent implements OnInit, OnDestroy {
 
   updateData() {
     this.dbService
-      .getClientsPaginated(this.actualPage, this.limit, this.sortedBy)
+      .getClientsPaginated(
+        this.actualPage,
+        this.limit,
+        this.sortedBy,
+        this.sortOrder
+      )
       .subscribe({
         next: (data) => {
           // console.log('Data retrieved successfully', data.body);
@@ -82,8 +89,12 @@ export class ClientListComponent implements OnInit, OnDestroy {
   }
 
   sort(column: string) {
-    if (column === 'firstName') {
-      column = column.split(' ')[0];
+    console.log(column, this.sortedBy);
+
+    if (column == this.sortedBy) {
+      this.sortOrder === 'asc'
+        ? (this.sortOrder = 'desc')
+        : (this.sortOrder = 'asc');
     }
 
     this.sortedBy = column;
