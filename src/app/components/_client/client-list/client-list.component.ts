@@ -2,18 +2,24 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DbService } from '../../../services/db.service';
 import { ButtonComponent } from '../../button/button.component';
 import { CommonModule, DatePipe } from '@angular/common';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { BehaviorSubject } from 'rxjs';
 import { CpfPipe } from '../../../pipes/cpf.pipe';
 import { ClientDetailComponent } from '../client-detail/client-detail.component';
+import { CeilPipe } from '../../../pipes/ceil.pipe';
 
 @Component({
   selector: 'app-client-list',
   standalone: true,
-  providers: [DbService, DatePipe, CpfPipe],
+  providers: [DbService, DatePipe, CpfPipe, CeilPipe],
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
-  imports: [CommonModule, ButtonComponent, CpfPipe, ClientDetailComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    CpfPipe,
+    ClientDetailComponent,
+    CeilPipe,
+  ],
 })
 export class ClientListComponent implements OnInit, OnDestroy {
   total!: number;

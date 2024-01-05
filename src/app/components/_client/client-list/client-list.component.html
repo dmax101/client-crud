@@ -87,8 +87,8 @@
     <div
       class="w-fit border-[1px] border-safra-neutral-300 p-2 rounded-xl text-center"
     >
-      {{ total }} <br />
-      registros
+      {{ actualPage }} / {{ total / limit | ceil }} pág.<br />
+      {{ total }} registros
     </div>
     <button class="text-nowrap" (click)="nextPage()">Próxima ▶</button>
     <button class="text-nowrap" (click)="lastPage()">Última ⏭</button>
