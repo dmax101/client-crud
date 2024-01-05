@@ -61,16 +61,21 @@
         class="flex flex-col py-3 px-5 border-solid border-safra-neutral-300 border-[1px] rounded-xl"
       >
         <label class="text-safra-primary-500 text-sm bg-transparent" for="cpf"
-          >CPF:</label
-        >
+          >CPF: @if(cpfIsDisabled) {
+          <span class="text-[10px] text-safra-danger-500"
+            >somente visualização</span
+          >
+          }
+        </label>
         <input
           #cpfInput
-          class="text-sm font-extralight text-safra-primary-900 bg-transparent mt-2 invalid:text-red-500"
+          class="text-sm font-extralight text-safra-primary-900 bg-transparent mt-2 invalid:text-red-500 read-only:text-red-700"
           type="text"
           name="cpf"
           id="cpf"
           placeholder="Digite o CPF do cliente"
           mask="000.000.000-00"
+          [readonly]="cpfIsDisabled"
           formControlName="cpf"
         />
         <small

@@ -32,6 +32,8 @@ export class ClientDetailComponent implements OnInit {
   @Output() saveClient = new EventEmitter();
   registerForm!: FormGroup;
 
+  cpfIsDisabled!: boolean;
+
   constructor(private fb: FormBuilder, private dbService: DbService) {}
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class ClientDetailComponent implements OnInit {
         email: ['', [Validators.required]],
         createdAt: ['', [Validators.required]],
       });
+      this.cpfIsDisabled = false;
     } else {
       this.registerForm = this.fb.group({
         firstName: [this.user.firstName, Validators.required],
@@ -57,6 +60,7 @@ export class ClientDetailComponent implements OnInit {
         email: [this.user.email, [Validators.required]],
         createdAt: [this.user.createdAt, [Validators.required]],
       });
+      this.cpfIsDisabled = true;
     }
   }
 
