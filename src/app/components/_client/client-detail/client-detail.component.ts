@@ -98,15 +98,7 @@ export class ClientDetailComponent implements OnInit {
     return null;
   }
 
-  onSaveRegister() {
-    if (this.registerForm.get('cpf')?.invalid) {
-      console.error('Erro! O campo CPF é inválido.');
-
-      alert('Erro! O CPF é inválido!');
-
-      throw new Error('Erro! O CPF é inválido!');
-    }
-
+  ageValidation(birthDate: string) {
     const currentDate = new Date();
     const ageInMilliseconds =
       currentDate.getTime() -
@@ -124,6 +116,39 @@ export class ClientDetailComponent implements OnInit {
 
       throw new Error('Erro: A idade deve estar entre 18 e 60 anos!');
     }
+  }
+
+  onSaveRegister() {
+    if (this.user.id) {
+      this.ageValidation(this.registerForm.value['birthDate']);
+
+      this.dbService
+        .updateClientOnDb(this.user.id, this.registerForm.value)
+        .subscribe({
+          next: (response) => {
+            console.log('Registro atualizado com sucesso:', response);
+
+            alert('Registro atualizado com sucesso!');
+
+            this.registerForm.reset();
+          },
+          error: (error) => {
+            console.error('Erro ao atualizar registro:', error);
+          },
+        });
+
+      return new EventEmitter();
+    }
+
+    if (this.registerForm.get('cpf')?.invalid) {
+      console.error('Erro! O campo CPF é inválido.');
+
+      alert('Erro! O CPF é inválido!');
+
+      throw new Error('Erro! O CPF é inválido!');
+    }
+
+    this.ageValidation(this.registerForm.value['birthDate']);
 
     this.dbService
       .saveClientOnDb({ ...this.registerForm.value, createdAt: new Date() })

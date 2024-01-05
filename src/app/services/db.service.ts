@@ -40,4 +40,10 @@ export class DbService {
 
     return this.http.delete(`${this.baseUrl}/clients/${clientId}`);
   }
+
+  updateClientOnDb(clientId: number, user: any) {
+    console.log('Atualizando no Banco de Dados!');
+
+    return this.http.put(`${this.baseUrl}/clients/${clientId}`, user);
+  }
 }
