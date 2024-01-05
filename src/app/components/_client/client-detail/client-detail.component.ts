@@ -10,7 +10,6 @@ import {
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { DbService } from '../../../services/db.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-client-detail',

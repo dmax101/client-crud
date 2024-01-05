@@ -19,6 +19,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
   total!: number;
   actualPage!: number;
   limit!: number;
+  sortedBy!: string;
 
   clients$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
@@ -29,6 +30,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.actualPage = 1;
     this.limit = 5;
+    this.sortedBy = 'firstName';
 
     this.updateData();
   }
@@ -51,17 +53,19 @@ export class ClientListComponent implements OnInit, OnDestroy {
   }
 
   updateData() {
-    this.dbService.getClientsPaginated(this.actualPage).subscribe({
-      next: (data) => {
-        // console.log('Data retrieved successfully', data.body);
+    this.dbService
+      .getClientsPaginated(this.actualPage, this.limit, this.sortedBy)
+      .subscribe({
+        next: (data) => {
+          // console.log('Data retrieved successfully', data.body);
 
-        this.clients$.next(data.body!);
-        this.total = Number(data.headers.get('X-Total-Count'));
-      },
-      error: (error) => {
-        console.error('Error!', error);
-      },
-    });
+          this.clients$.next(data.body!);
+          this.total = Number(data.headers.get('X-Total-Count'));
+        },
+        error: (error) => {
+          console.error('Error!', error);
+        },
+      });
   }
 
   edit(
@@ -75,6 +79,16 @@ export class ClientListComponent implements OnInit, OnDestroy {
     clientDetail!.user = this.user;
     clientDetail.ngOnInit();
     dialogue.open = true;
+  }
+
+  sort(column: string) {
+    if (column === 'firstName') {
+      column = column.split(' ')[0];
+    }
+
+    this.sortedBy = column;
+
+    this.updateData();
   }
 
   firstPage() {

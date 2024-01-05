@@ -14,13 +14,13 @@ export class DbService {
     return this.http.get<any[]>(`${this.baseUrl}/clients`);
   }
 
-  getClientsPaginated(page = 1, limit = 5) {
+  getClientsPaginated(page = 1, limit = 5, sort: string) {
     console.log('Buscando clientes no Banco de Dados!');
     console.log('Página', page);
     console.log('Máximo', limit);
 
     return this.http.get<any[]>(
-      `${this.baseUrl}/clients?_page=${page}&_limit=${limit}`,
+      `${this.baseUrl}/clients?_page=${page}&_limit=${limit}&_sort=${sort}`,
       {
         observe: 'response',
         transferCache: { includeHeaders: ['X-Total-Count'] },

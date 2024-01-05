@@ -5,12 +5,24 @@
         class="uppercase text-[12px] text-white bg-safra-primary-300 rounded-tr-none rounded-tl-3xl rounded-bl-3xl rounded-br-3xl"
       >
         <th class="w-fit text-center text-nowrap p-2">Editar</th>
-        <th class="w-fit text-center text-nowrap p-2">Nome</th>
-        <th class="w-fit text-center text-nowrap p-2">CPF</th>
-        <th class="w-fit text-center text-nowrap p-2">Data de Nascimento</th>
-        <th class="w-fit text-center text-nowrap p-2">Renda Mensal</th>
-        <th class="w-fit text-center text-nowrap p-2">E-mail</th>
-        <th class="w-fit text-center text-nowrap p-2">Data de Criação</th>
+        <th class="w-fit text-center text-nowrap p-2">
+          Nome <button (click)="sort('firstName')">↕</button>
+        </th>
+        <th class="w-fit text-center text-nowrap p-2">
+          CPF <button (click)="sort('cpf')">↕</button>
+        </th>
+        <th class="w-fit text-center text-nowrap p-2">
+          Data de Nascimento <button (click)="sort('birthDate')">↕</button>
+        </th>
+        <th class="w-fit text-center text-nowrap p-2">
+          Renda Mensal <button (click)="sort('monthlyIncome')">↕</button>
+        </th>
+        <th class="w-fit text-center text-nowrap p-2">
+          E-mail <button (click)="sort('email')">↕</button>
+        </th>
+        <th class="w-fit text-center text-nowrap p-2">
+          Data de Criação <button (click)="sort('createdAt')">↕</button>
+        </th>
         <th class="w-fit text-center text-nowrap p-2">Excluir</th>
       </tr>
     </thead>
